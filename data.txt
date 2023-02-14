@@ -1,0 +1,25 @@
+a.docker
+1.include all depencies/packages our application
+->pip freeze > requirments.txt
+2.all the command and instruction are use to build to image
+->python:3.10.4-slim-buster
+3.WORKDIR /app
+
+
+for run docker
+1.docker build -t django_project .
+2.docker images
+3.docker run -d -p 9000:8080 django_project
+4.docker ps
+5.docker exec -it 98b5a99c690b /bin/bash
+6.ls
+7.pwd
+8.docker run --publish 9000:8080 django_project
+9.sudo service docker restart 
+10.docker run -it -p 8000:8000 django_project
+for docker-compose
+1.sudo apt-get upgrade docker-compose
+2.
+
+
+
