@@ -92,7 +92,7 @@ def searchapi(query, pages=int(RESULT_COUNT/10)):
 def search_api(request):
     pages=int(RESULT_COUNT/10)
     results = []
-    query='art forms of himachal pradesh'
+    query='python'
     for i in range(0, pages):
         start = i*10+1
         url = SEARCH_URL.format(
@@ -121,6 +121,7 @@ def datasearch(request):
     'df_rec': df.to_dict(orient='records')
     }
   return render(request, 'my_page.html', context)
+
 
 
 # def connect(key):  
@@ -231,4 +232,22 @@ def datashow(request):
         'df_rec': df.to_dict(orient='records')
         }
   return render(request,'index.html',context)
+
+
+
+
+import pandas as pd
+
+# @api_view(['GET',])
+def googlesearch(request):
+    data = pd.DataFrame({'Name': ['Marks'], 
+                    'Jitender': ['78'],
+                    'Rahul': ['77.9']})
+    print(type(data))
+    print(data.keys())
+    context={
+        'data_dict':data.to_dict(),
+        'data_rec':data.to_dict(orient='record')
+    }
+    return render(request,'query.html',context)
 

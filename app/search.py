@@ -78,7 +78,7 @@ def query(request):
     df = query(service, site_url, payload)
     return Response({'data':df.head()})
 
-def query(request):
+def querydata(request):
     payload = {'startDate': "2019-01-01",'endDate': "2019-12-31",'dimensions': ["page","device","query"],'rowLimit': 100,'startRow': 0}
     site_url="https://data-flair.training/"
     response=service.searchanalytics().query(siteUrl=site_url, body=payload).execute()
@@ -96,11 +96,15 @@ def query(request):
     df=query(service,site_url,payload)
     return render(request,'query.html',{'df':df})
 
-def dataquery():
-    df=query()
+def dataquery(request):
+    payload = {'startDate': "2019-01-01",'endDate': "2019-12-31",'dimensions': ["page","device","query"],'rowLimit': 100,'startRow': 0}
+    site_url="https://data-flair.training/"
+    service=connect(key)  
+    df=query(service,site_url,payload)  
+    data=querydata(df)
     context={
-        'df_dict':df.to_dict(),
-        'df_rec':df.to_dict(orient='records')
+        'df_dict':data.to_dict(),
+        'df_rec':data.to_dict(orient='records')
     }
     return render(request,'query.html',context)
 

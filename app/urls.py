@@ -16,12 +16,13 @@ urlpatterns = [
     # path("", views.homepage, name="homepage"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('searchdata',searchapi,name='search'),
-    path('search',search_api, name='search'),
-    path('add',add,name='add'),
+    # path('search',search_api, name='search'),
+    # path('add',add,name='add'),
     path('index',datasearch,name='data'),
     path('show',datashow,name='show'),
     path('connect',query,name='connect'),
-    path('dataquery',dataquery,name='dataquery')
+    path('dataquery',dataquery,name='dataquery'),
+    path('data',googlesearch,name='data')
 
 ]
 

@@ -6,3 +6,6 @@ class Profile(models.Model):
     email=models.EmailField()
     mobile=models.CharField(max_length=100)
 
+class Contact(models.Model):
+    name=models.CharField(max_length=100,blank=True,null=True)
+    mobile=models.CharField(max_length=100,blank=True,null=True)

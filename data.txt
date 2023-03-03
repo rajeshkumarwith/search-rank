@@ -19,7 +19,15 @@ for run docker
 10.docker run -it -p 8000:8000 django_project
 for docker-compose
 1.sudo apt-get upgrade docker-compose
-2.
 
+for restrart service.
+1.docker ps
+2.docker stop <container_id> 
+3.docker run --publish 9000:8000 django_project
+
+
+for docker-compose run
+1.sudo docker-compose build
+2.sudo docker-compose up
 
 
